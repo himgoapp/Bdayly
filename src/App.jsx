@@ -250,11 +250,20 @@ function WishPage() {
     return () => { alive = false; };
   }, [slug]);
 
-  const theme = templates.find(t => t.id === page?.template) || templates[1];
+  
+const theme = templates.find(t => t.id === page?.template) || templates[1];
 
-  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
-  const whatsappMessage = `A little birthday surprise for you 🎂✨\nOpen it here: ${shareUrl}`;
-  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
+const shareUrl =
+  typeof window !== "undefined"
+    ? `${window.location.origin}/api/og?slug=${encodeURIComponent(slug)}`
+    : "";
+
+const whatsappMessage =
+  `A little birthday surprise for you 🎂✨\nOpen it here: ${shareUrl}`;
+
+const whatsappUrl =
+  `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
+
 
   async function copyLink() {
     try {
