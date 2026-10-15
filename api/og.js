@@ -65,7 +65,8 @@ export default async function handler(req, res) {
     const image = birthday.photo_url || `${siteUrl}/bdayly-preview.png`;
 
     res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.setHeader("Cache-Control", "public, max-age=60, s-maxage=300");
+    // res.setHeader("Cache-Control", "public, max-age=60, s-maxage=300");
+    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
     return res.status(200).send(`<!doctype html>
 <html lang="en">
@@ -89,11 +90,10 @@ export default async function handler(req, res) {
   <meta name="twitter:description" content="${escapeHtml(description)}">
   <meta name="twitter:image" content="${escapeHtml(image)}">
 
-  <script>
-    window.location.replace(${JSON.stringify(pageUrl)});
-  </script>
+
 </head>
 <body>
+
   <p>Opening your birthday surprise...</p>
   <a href="${escapeHtml(pageUrl)}">Open birthday surprise</a>
 </body>
