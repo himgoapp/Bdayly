@@ -82,6 +82,8 @@ export default async function handler(req, res) {
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${escapeHtml(pageUrl)}">
   <meta property="og:image" content="${escapeHtml(image)}">
+  <meta property="og:image:secure_url" content="${escapeHtml(image)}">
+<meta property="og:image:alt" content="Birthday surprise">
   <meta property="og:image:alt" content="Birthday surprise for ${escapeHtml(recipient)}">
 
   <meta name="twitter:card" content="summary_large_image">
